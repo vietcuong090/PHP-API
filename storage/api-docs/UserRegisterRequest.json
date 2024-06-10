@@ -1,0 +1,24 @@
+{
+    "title": "User",
+    "required": [
+        "username",
+        "email",
+        "password"
+    ],
+    "properties": {
+        "username": {
+            "type": "string",
+            "example": "abcxyz"
+        },
+        "email": {
+            "type": "string",
+            "format": "email",
+            "example": "abcxyz@co.cc"
+        },
+        "password": {
+            "type": "string",
+            "example": "abcxyz"
+        }
+    },
+    "type": "object"
+}

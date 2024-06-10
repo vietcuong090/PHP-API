@@ -1,0 +1,9 @@
+parameters:
+    paths:
+        - app
+    level: 4
+    ignoreErrors:
+        - '#Call to an undefined method [a-zA-Z0-9\\_::]#'
+        - '#^Call to an undefined static method App\\Models\\.*\:\:.*\(\)\.$#'
+        - '#^Access to an undefined property (App\\Http\\.*|App\\Models\\.*|Illuminate\\.*|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\.*\>)\:\:\$\w+\.$#'
+    excludePaths:

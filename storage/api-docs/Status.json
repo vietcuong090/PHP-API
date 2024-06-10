@@ -1,0 +1,20 @@
+{
+    "title": "Status",
+    "description": "Status model",
+    "required": [
+        "name"
+    ],
+    "properties": {
+        "id": {
+            "description": "id",
+            "type": "integer",
+            "example": 1
+        },
+        "name": {
+            "description": "Name of status",
+            "type": "string",
+            "example": "todo"
+        }
+    },
+    "type": "object"
+}

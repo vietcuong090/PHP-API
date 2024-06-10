@@ -1,0 +1,27 @@
+{
+    "title": "Meta",
+    "description": "Meta data",
+    "properties": {
+        "success": {
+            "type": "string",
+            "example": "operation success"
+        },
+        "status": {
+            "type": "boolean",
+            "example": true
+        },
+        "error": {
+            "type": "string",
+            "example": ""
+        },
+        "code": {
+            "type": "integer",
+            "example": 200
+        },
+        "message": {
+            "type": "string",
+            "example": "success"
+        }
+    },
+    "type": "object"
+}

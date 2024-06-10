@@ -1,0 +1,73 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Task Management API",
+        "contact": {
+            "email": "email@example.com"
+        },
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/v1/",
+            "description": "API version 1 for Task Management"
+        },
+        {
+            "url": "http://192.168.7.1:8000/api/v1/",
+            "description": "API version 1 for Task Management"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "$ref": "Authentication.json#/paths/~1login"
+        },
+        "/logout": {
+            "$ref": "Authentication.json#/paths/~1logout"
+        },
+        "/register": {
+            "$ref": "Authentication.json#/paths/~1register"
+        },
+        "/admin/issues": {
+            "$ref": "Admin-issues.json#/paths/~1admin~1issues"
+        },
+        "/admin/issues/{id}": {
+            "$ref": "Admin-issues.json#/paths/~1admin~1issues~1{id}"
+        },
+        "/admin/categories": {
+            "$ref": "Admin-categories.json#/paths/~1admin~1categories"
+        },
+        "/admin/categories/{id}": {
+            "$ref": "Admin-categories.json#/paths/~1admin~1categories~1{id}"
+        },
+        "/admin/types": {
+            "$ref": "Admin-types.json#/paths/~1admin~1types"
+        },
+        "/admin/types/{id}": {
+            "$ref": "Admin-types.json#/paths/~1admin~1types~1{id}"
+        },
+        "/admin/status": {
+            "$ref": "Admin-status.json#/paths/~1admin~1status"
+        },
+        "/admin/status/{id}": {
+            "$ref": "Admin-status.json#/paths/~1admin~1status~1{id}"
+        },
+        "/admin/roles": {
+            "$ref": "Admin-roles.json#/paths/~1admin~1roles"
+        },
+        "/user/issues": {
+            "$ref": "User-issues.json#/paths/~1user~1issues"
+        },
+        "/user/issues/{id}": {
+            "$ref": "User-issues.json#/paths/~1user~1issues~1{id}"
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}

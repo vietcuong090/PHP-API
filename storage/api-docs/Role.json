@@ -1,0 +1,20 @@
+{
+    "title": "Role",
+    "description": "Role model",
+    "required": [
+        "name"
+    ],
+    "properties": {
+        "id": {
+            "description": "id of role",
+            "type": "integer",
+            "example": 1
+        },
+        "name": {
+            "description": "name of role",
+            "type": "string",
+            "example": "admin"
+        }
+    },
+    "type": "object"
+}

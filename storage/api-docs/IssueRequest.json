@@ -1,0 +1,60 @@
+{
+    "title": "Issues",
+    "description": "Issue model",
+    "required": [
+        "title",
+        "content",
+        "content_vi",
+        "category_id",
+        "status_id",
+        "type_id"
+    ],
+    "properties": {
+        "title": {
+            "description": "Title of the issue",
+            "type": "string",
+            "example": "this is issue"
+        },
+        "content": {
+            "description": "content english of issue",
+            "type": "string",
+            "example": "this is content english of issue"
+        },
+        "content_vi": {
+            "description": "content vietnamese of issue",
+            "type": "string",
+            "example": "Day la noi dung bang tieng viet"
+        },
+        "user_id": {
+            "description": "user is assigned into the issue",
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+        },
+        "category_id": {
+            "description": "category of the issue",
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+        },
+        "status_id": {
+            "description": "status of the issue",
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+        },
+        "type_id": {
+            "description": "kind of the issue",
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+        },
+        "parent_id": {
+            "description": "Parent Function",
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+        }
+    },
+    "type": "object"
+}

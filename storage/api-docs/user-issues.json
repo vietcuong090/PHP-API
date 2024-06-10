@@ -1,0 +1,277 @@
+{
+    "paths": {
+        "/user/issues": {
+            "get": {
+                "tags": [
+                    "Issues"
+                ],
+                "summary": "Get all issues for user",
+                "description": "Return a list of all issues for user",
+                "operationId": "UserGetAllIssues",
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "header",
+                        "description": "Current language",
+                        "example": "en"
+                    },
+                    {
+                        "name": "type_id",
+                        "in": "query",
+                        "description": "filter by type_id",
+                        "example": 1
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "description": "filter by category_id",
+                        "example": 1
+                    },
+                    {
+                        "name": "status_id",
+                        "in": "query",
+                        "description": "filter by status_id",
+                        "example": 1
+                    },
+                    {
+                        "name": "owner_id",
+                        "in": "query",
+                        "description": "filter by owner_id",
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "meta": {
+                                            "$ref": "Meta.json"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "IssueListResponse.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No issues found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Issues"
+                ],
+                "summary": "create issue by user",
+                "operationId": "UserCreateIssue",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "IssueRequest.json"
+                            }
+                        }
+                    },
+                    "description": "create new issue",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "meta": {
+                                            "$ref": "Meta.json"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "$ref": "IssueResponse.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid issue supplied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/user/issues/{id}": {
+            "get": {
+                "tags": [
+                    "Issues"
+                ],
+                "summary": "get issue by issue id",
+                "operationId": "UserGetIssueById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id of the issue",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "IssueResponse.json"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid issue id supplied"
+                    },
+                    "404": {
+                        "description": "Issue not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Issues"
+                ],
+                "summary": "update information of issue by user",
+                "operationId": "UserUpdateIssue",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id of the issue",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "IssueRequest.json"
+                            }
+                        }
+                    },
+                    "description": "update the issue",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "meta": {
+                                            "$ref": "Meta.json"
+                                        },
+                                        "data": {
+                                            "type": "integer",
+                                            "example": 1,
+                                            "description": "Id of issue"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid issue supplied"
+                    },
+                    "404": {
+                        "description": "Issue not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Issues"
+                ],
+                "summary": "delete owner issue by issue id",
+                "operationId": "UserDeleteIssue",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id of the issue",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "meta": {
+                                            "$ref": "Meta.json"
+                                        },
+                                        "data": {
+                                            "type": "integer",
+                                            "example": 1,
+                                            "description": "Id of issue"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid issue id supplied"
+                    },
+                    "404": {
+                        "description": "Issue not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    }
+}
